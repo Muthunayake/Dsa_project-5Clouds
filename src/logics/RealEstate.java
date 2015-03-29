@@ -1,12 +1,19 @@
 
 package logics;
 
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+
 
 public class RealEstate extends javax.swing.JFrame {
 
    
     public RealEstate() {
         initComponents();
+        setLocationRelativeTo(null);                   //this is set application to middle when it start
     }
 
    
@@ -269,6 +276,18 @@ public class RealEstate extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                 try {
+                    UIManager.setLookAndFeel("com.jtattoo.plaf.texture.TextureLookAndFeel");
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(RealEstate.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (InstantiationException ex) {
+                    Logger.getLogger(RealEstate.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IllegalAccessException ex) {
+                    Logger.getLogger(RealEstate.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (UnsupportedLookAndFeelException ex) {
+                    Logger.getLogger(RealEstate.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
                 new RealEstate().setVisible(true);
             }
         });
