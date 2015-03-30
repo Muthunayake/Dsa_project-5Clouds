@@ -1,9 +1,12 @@
 
 package logics;
 
+import file.HouseFile;
 import java.util.List;
+import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -17,7 +20,12 @@ public class RealEstate extends javax.swing.JFrame {
    
     public RealEstate() {
         initComponents();
-        setLocationRelativeTo(null);                   //this is set application to middle when it start
+        setLocationRelativeTo(null);   //this is set application to middle when it start
+        
+        HouseFile fm = new HouseFile();     //this is for add button
+        houses = fm.readFile();
+
+
     }
 
    
@@ -233,7 +241,43 @@ public class RealEstate extends javax.swing.JFrame {
 
     private void jButton_addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_addActionPerformed
 
-       
+               if (checkAdd) {
+
+            DataStore house = new DataStore();
+            house.setFName(jTextField_firstName.getText());
+            house.setLName(jTextField_lastName.getText());
+            house.setLotNo(Long.parseLong(jTextField_lotNumber.getText()));
+            house.setNoOfRoom(Integer.parseInt(jTextField_numBedRooms.getText()));
+            house.setPrice(Long.parseLong(jTextField_price.getText()));
+            house.setSqFeet(Long.parseLong(jTextField_sqareFeet.getText()));
+
+            Boolean check = false;
+            for (DataStore h : houses) {
+                if (Objects.equals(h.getLotNo(), house.getLotNo())) {
+                    check = true;
+                }
+            }
+
+            if (check) {
+                JOptionPane.showMessageDialog(rootPane, "Lot Number", "Error", JOptionPane.WARNING_MESSAGE);
+            } else {
+                //                HouseFile FileSave = new HouseFile();
+                //                FileSave.saveHouseFile(house);
+
+                SortedList sl = new SortedList();
+                sl.saveFile(house);
+
+                HouseFile fileRead = new HouseFile();
+                houses = fileRead.readFile();
+
+                JOptionPane.showMessageDialog(rootPane, "Successfully Added", "Success", JOptionPane.INFORMATION_MESSAGE);
+
+                clearForm();
+            }
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "You need to rest befor add !", "Error", JOptionPane.WARNING_MESSAGE);
+        }
+
     }//GEN-LAST:event_jButton_addActionPerformed
 
     private void jButton_deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_deleteActionPerformed
