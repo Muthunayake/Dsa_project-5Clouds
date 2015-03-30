@@ -10,6 +10,10 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 public class RealEstate extends javax.swing.JFrame {
 
+    private List<DataStore> houses;
+    private int row = 0;
+
+    private Boolean checkAdd = true;
    
     public RealEstate() {
         initComponents();
@@ -220,7 +224,7 @@ public class RealEstate extends javax.swing.JFrame {
 
     private void jButton_resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_resetActionPerformed
 
-      
+       clearForm();
     }//GEN-LAST:event_jButton_resetActionPerformed
 
     private void jButton_nextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_nextActionPerformed
@@ -249,6 +253,21 @@ public class RealEstate extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton6ActionPerformed
 
    
+    public void clearForm() {
+
+        jTextField_firstName.setText("");
+        jTextField_lastName.setText("");
+        jTextField_lotNumber.setText("");
+        jTextField_numBedRooms.setText("");
+        jTextField_price.setText("");
+        jTextField_sqareFeet.setText("");
+
+        jLabel_dis.setText("Next House Displaed : ");
+        row = 0;
+
+        checkAdd = true;
+    }
+    
     public static void main(String args[]) {
       
     
