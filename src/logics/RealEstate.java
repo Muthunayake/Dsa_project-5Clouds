@@ -256,66 +256,74 @@ public class RealEstate extends javax.swing.JFrame {
 
     private void jButton_addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_addActionPerformed
 
-        if (checkAdd) {
+        try {
+            if (jTextField_lotNumber.getText().equals("") || jTextField_firstName.getText().equals("")) {
+                JOptionPane.showMessageDialog(rootPane, "You Should Enter Values ", "Error", JOptionPane.WARNING_MESSAGE);
 
-            DataStore house = new DataStore();
-            house.setFName(jTextField_firstName.getText());
-            house.setLName(jTextField_lastName.getText());
-            house.setLotNo(Long.parseLong(jTextField_lotNumber.getText()));
-            house.setNoOfRoom(Integer.parseInt(jTextField_numBedRooms.getText()));
-            house.setPrice(Long.parseLong(jTextField_price.getText()));
-            house.setSqFeet(Long.parseLong(jTextField_sqareFeet.getText()));
-
-            Boolean check = false;
-            for (DataStore h : houses) {
-                if (Objects.equals(h.getLotNo(), house.getLotNo())) {
-                    check = true;
-                }
-            }
-
-            if (check) {
-                JOptionPane.showMessageDialog(rootPane, "Lot Number", "Error", JOptionPane.WARNING_MESSAGE);
             } else {
+                if (checkAdd) {
+
+                    DataStore house = new DataStore();
+                    house.setFName(jTextField_firstName.getText());
+                    house.setLName(jTextField_lastName.getText());
+                    house.setLotNo(Long.parseLong(jTextField_lotNumber.getText()));
+                    house.setNoOfRoom(Integer.parseInt(jTextField_numBedRooms.getText()));
+                    house.setPrice(Long.parseLong(jTextField_price.getText()));
+                    house.setSqFeet(Long.parseLong(jTextField_sqareFeet.getText()));
+
+                    Boolean check = false;
+                    for (DataStore h : houses) {
+                        if (Objects.equals(h.getLotNo(), house.getLotNo())) {
+                            check = true;
+                        }
+                    }
+
+                    if (check) {
+                        JOptionPane.showMessageDialog(rootPane, "Lot Number", "Error", JOptionPane.WARNING_MESSAGE);
+                    } else {
                 //                HouseFile FileSave = new HouseFile();
-                //                FileSave.saveHouseFile(house);
+                        //                FileSave.saveHouseFile(house);
 
-                SortedList sl = new SortedList();
-                sl.saveFile(house);
+                        SortedList sl = new SortedList();
+                        sl.saveFile(house);
 
-                HouseFile fileRead = new HouseFile();
-                houses = fileRead.readFile();
+                        HouseFile fileRead = new HouseFile();
+                        houses = fileRead.readFile();
 
-                JOptionPane.showMessageDialog(rootPane, "Successfully Added", "Success", JOptionPane.INFORMATION_MESSAGE);
+                        JOptionPane.showMessageDialog(rootPane, "Successfully Added", "Success", JOptionPane.INFORMATION_MESSAGE);
 
-                clearForm();
+                        clearForm();
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(rootPane, "You need to rest befor add !", "Error", JOptionPane.WARNING_MESSAGE);
+                }
+
             }
-        } else {
-            JOptionPane.showMessageDialog(rootPane, "You need to rest befor add !", "Error", JOptionPane.WARNING_MESSAGE);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(rootPane, "You Should Enter Number ", "Error", JOptionPane.WARNING_MESSAGE);
+
         }
 
     }//GEN-LAST:event_jButton_addActionPerformed
 
     private void jButton_deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_deleteActionPerformed
- 
-            List<DataStore> newList = new ArrayList<>();
 
-            for (DataStore h : houses) {
-                if (!(h.getLotNo().toString().equals(jTextField_lotNumber.getText()))) {
-                    newList.add(h);
-                }
+        List<DataStore> newList = new ArrayList<>();
+
+        for (DataStore h : houses) {
+            if (!(h.getLotNo().toString().equals(jTextField_lotNumber.getText()))) {
+                newList.add(h);
             }
+        }
 
-            JOptionPane.showMessageDialog(rootPane, "Successfully Delete", "Success", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(rootPane, "Successfully Delete", "Success", JOptionPane.INFORMATION_MESSAGE);
 
-            clearForm();
+        clearForm();
 
-            
+        HouseFile hf = new HouseFile();
+        hf.saveHouseList(newList);
 
-            HouseFile hf = new HouseFile();
-            hf.saveHouseList(newList);
-
-            houses = hf.readFile();
-        
+        houses = hf.readFile();
 
 
     }//GEN-LAST:event_jButton_deleteActionPerformed
