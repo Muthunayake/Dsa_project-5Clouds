@@ -311,6 +311,22 @@ public class RealEstate extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
 
+          Long lot_no = Long.parseLong(jTextField_lotNumber.getText());
+
+        HouseFile hf = new HouseFile();
+
+        List<DataStore> list = hf.readFile();
+
+        for (DataStore ds : list) {
+
+            if (ds.getLotNo().equals(lot)) {
+                jTextField_firstName.setText(ds.getFName());
+                jTextField_lastName.setText(ds.getLName());
+                jTextField_numBedRooms.setText(ds.getNoOfRoom().toString());
+                jTextField_price.setText(ds.getPrice().toString());
+                jTextField_sqareFeet.setText(ds.getSqFeet().toString());
+            }
+        }
       
     }//GEN-LAST:event_jButton6ActionPerformed
 
