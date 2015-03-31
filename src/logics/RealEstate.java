@@ -335,7 +335,7 @@ public class RealEstate extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                  try {
-                    UIManager.setLookAndFeel("com.jtattoo.plaf.mint.MintLookAndFeel");        /* Set the  look and feel */
+                    UIManager.setLookAndFeel("com.jtattoo.plaf.texture.TextureLookAndFeel");        /* Set the  look and feel */
                 } catch (ClassNotFoundException ex) {
                     Logger.getLogger(RealEstate.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (InstantiationException ex) {
