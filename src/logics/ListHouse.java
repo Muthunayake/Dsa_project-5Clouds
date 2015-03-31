@@ -16,6 +16,7 @@ public class ListHouse extends javax.swing.JFrame {
      */
     public ListHouse() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**

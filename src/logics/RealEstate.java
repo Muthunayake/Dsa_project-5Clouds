@@ -303,7 +303,7 @@ public class RealEstate extends javax.swing.JFrame {
 
     private void jButton_listActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_listActionPerformed
     
-    ListHouse lh = new ListHouse(this, rootPaneCheckingEnabled, houses);
+    ListHouse lh = new ListHouse();
         
     lh.setVisible(true);
      
