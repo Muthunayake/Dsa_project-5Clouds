@@ -1,6 +1,7 @@
 package logics;
 
 import file.HouseFile;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.logging.Level;
@@ -292,6 +293,26 @@ public class RealEstate extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton_addActionPerformed
 
     private void jButton_deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_deleteActionPerformed
+ 
+            List<DataStore> newList = new ArrayList<>();
+
+            for (DataStore h : houses) {
+                if (!(h.getLotNo().toString().equals(jTextField_lotNumber.getText()))) {
+                    newList.add(h);
+                }
+            }
+
+            JOptionPane.showMessageDialog(rootPane, "Successfully Delete", "Success", JOptionPane.INFORMATION_MESSAGE);
+
+            clearForm();
+
+            
+
+            HouseFile hf = new HouseFile();
+            hf.saveHouseList(newList);
+
+            houses = hf.readFile();
+        
 
 
     }//GEN-LAST:event_jButton_deleteActionPerformed
