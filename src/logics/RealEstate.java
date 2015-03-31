@@ -1,4 +1,3 @@
-
 package logics;
 
 import file.HouseFile;
@@ -10,25 +9,22 @@ import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-
 public class RealEstate extends javax.swing.JFrame {
 
     private List<DataStore> houses;
     private int row = 0;
 
     private Boolean checkAdd = true;
-   
+
     public RealEstate() {
         initComponents();
         setLocationRelativeTo(null);   //this is set application to middle when it start
-        
+
         HouseFile fm = new HouseFile();     //this is for add button
         houses = fm.readFile();
 
-
     }
 
-   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -232,7 +228,7 @@ public class RealEstate extends javax.swing.JFrame {
 
     private void jButton_resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_resetActionPerformed
 
-       clearForm();
+        clearForm();
     }//GEN-LAST:event_jButton_resetActionPerformed
 
     private void jButton_nextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_nextActionPerformed
@@ -256,7 +252,7 @@ public class RealEstate extends javax.swing.JFrame {
 
     private void jButton_addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_addActionPerformed
 
-               if (checkAdd) {
+        if (checkAdd) {
 
             DataStore house = new DataStore();
             house.setFName(jTextField_firstName.getText());
@@ -297,14 +293,13 @@ public class RealEstate extends javax.swing.JFrame {
 
     private void jButton_deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_deleteActionPerformed
 
-      
 
     }//GEN-LAST:event_jButton_deleteActionPerformed
 
     private void jButton_listActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_listActionPerformed
-ListHouse lh = new ListHouse(this, rootPaneCheckingEnabled, houses);
-        lh.setVisible(true);         
-     
+        ListHouse lh = new ListHouse(this, rootPaneCheckingEnabled, houses);
+        lh.setVisible(true);
+
     }//GEN-LAST:event_jButton_listActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -325,10 +320,9 @@ ListHouse lh = new ListHouse(this, rootPaneCheckingEnabled, houses);
                 jTextField_sqareFeet.setText(ds.getSqFeet().toString());
             }
         }
-      
+
     }//GEN-LAST:event_jButton6ActionPerformed
 
-   
     public void clearForm() {
 
         jTextField_firstName.setText("");
@@ -343,16 +337,15 @@ ListHouse lh = new ListHouse(this, rootPaneCheckingEnabled, houses);
 
         checkAdd = true;
     }
-    
+
     public static void main(String args[]) {
-      
-    
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                 try {
+                try {
                     UIManager.setLookAndFeel("com.jtattoo.plaf.texture.TextureLookAndFeel");        /* Set the  look and feel */
+
                 } catch (ClassNotFoundException ex) {
                     Logger.getLogger(RealEstate.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (InstantiationException ex) {
@@ -362,7 +355,7 @@ ListHouse lh = new ListHouse(this, rootPaneCheckingEnabled, houses);
                 } catch (UnsupportedLookAndFeelException ex) {
                     Logger.getLogger(RealEstate.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                
+
                 new RealEstate().setVisible(true);
             }
         });
