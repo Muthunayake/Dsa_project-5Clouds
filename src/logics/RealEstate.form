@@ -277,16 +277,29 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextField_numBedRooms">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField_numBedRoomsKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextField_price">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField_priceKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextField_sqareFeet">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField_sqareFeetKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextField_lastName">
     </Component>
     <Component class="javax.swing.JTextField" name="jTextField_firstName">
     </Component>
     <Component class="javax.swing.JTextField" name="jTextField_lotNumber">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField_lotNumberActionPerformed"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField_lotNumberKeyTyped"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

@@ -1,6 +1,7 @@
 package logics;
 
 import file.HouseFile;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -139,6 +140,35 @@ public class RealEstate extends javax.swing.JFrame {
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel6.setText("Number Of Bedrooms:");
 
+        jTextField_numBedRooms.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField_numBedRoomsKeyTyped(evt);
+            }
+        });
+
+        jTextField_price.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField_priceKeyTyped(evt);
+            }
+        });
+
+        jTextField_sqareFeet.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField_sqareFeetKeyTyped(evt);
+            }
+        });
+
+        jTextField_lotNumber.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField_lotNumberActionPerformed(evt);
+            }
+        });
+        jTextField_lotNumber.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField_lotNumberKeyTyped(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -259,7 +289,7 @@ public class RealEstate extends javax.swing.JFrame {
         try {
             if (jTextField_lotNumber.getText().equals("") || jTextField_firstName.getText().equals("")) {
                 JOptionPane.showMessageDialog(rootPane, "You Should Enter Values ", "Error", JOptionPane.WARNING_MESSAGE);
-
+                jTextField_lotNumber.requestFocusInWindow();
             } else {
                 if (checkAdd) {
 
@@ -375,6 +405,46 @@ public class RealEstate extends javax.swing.JFrame {
         houses = hf.readFile();
 
     }//GEN-LAST:event_jButton_delete1ActionPerformed
+
+    private void jTextField_lotNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_lotNumberActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField_lotNumberActionPerformed
+
+    private void jTextField_lotNumberKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField_lotNumberKeyTyped
+        char c=evt.getKeyChar();
+        if( ((Character.isDigit(c) || (c == KeyEvent.VK_BACK_SPACE)) || (c == KeyEvent.VK_DELETE)) || c == '.'){
+        } else {
+            JOptionPane.showMessageDialog(null,"Please Use Only Numbers !");
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextField_lotNumberKeyTyped
+
+    private void jTextField_priceKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField_priceKeyTyped
+        char c=evt.getKeyChar();
+        if( ((Character.isDigit(c) || (c == KeyEvent.VK_BACK_SPACE)) || (c == KeyEvent.VK_DELETE)) || c == '.'){
+        } else {
+            JOptionPane.showMessageDialog(null,"Please Use Only Numbers !");
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextField_priceKeyTyped
+
+    private void jTextField_sqareFeetKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField_sqareFeetKeyTyped
+        char c=evt.getKeyChar();
+        if( ((Character.isDigit(c) || (c == KeyEvent.VK_BACK_SPACE)) || (c == KeyEvent.VK_DELETE)) || c == '.'){
+        } else {
+            JOptionPane.showMessageDialog(null,"Please Use Only Numbers !");
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextField_sqareFeetKeyTyped
+
+    private void jTextField_numBedRoomsKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField_numBedRoomsKeyTyped
+        char c=evt.getKeyChar();
+        if( ((Character.isDigit(c) || (c == KeyEvent.VK_BACK_SPACE)) || (c == KeyEvent.VK_DELETE))){
+        } else {
+            JOptionPane.showMessageDialog(null,"Please Use Only Numbers !");
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextField_numBedRoomsKeyTyped
 
     public void clearForm() {
 
