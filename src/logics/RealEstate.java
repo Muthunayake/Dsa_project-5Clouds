@@ -319,7 +319,7 @@ public class RealEstate extends javax.swing.JFrame {
 
         for (DataStore ds : list) {
 
-            if (ds.getLotNo().equals(lot)) {
+            if (ds.getLotNo().equals(lot_no)) {
                 jTextField_firstName.setText(ds.getFName());
                 jTextField_lastName.setText(ds.getLName());
                 jTextField_numBedRooms.setText(ds.getNoOfRoom().toString());
