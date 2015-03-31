@@ -303,15 +303,13 @@ public class RealEstate extends javax.swing.JFrame {
 
     private void jButton_listActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_listActionPerformed
     
-    ListHouse lh = new ListHouse();
         
-    lh.setVisible(true);
      
     }//GEN-LAST:event_jButton_listActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
 
-          Long lot_no = Long.parseLong(jTextField_lotNumber.getText());
+        Long lot_no = Long.parseLong(jTextField_lotNumber.getText());
 
         HouseFile hf = new HouseFile();
 
