@@ -378,6 +378,8 @@ public class RealEstate extends javax.swing.JFrame {
         jTextField_numBedRooms.enable(false);
         jTextField_price.enable(false);
         jTextField_sqareFeet.enable(false);
+           
+        if(!"".equals(jTextField_lotNumber.getText())) {
             
         Long lot_no = Long.parseLong(jTextField_lotNumber.getText());
 
@@ -394,6 +396,9 @@ public class RealEstate extends javax.swing.JFrame {
                 jTextField_price.setText(ds.getPrice().toString());
                 jTextField_sqareFeet.setText(ds.getSqFeet().toString());
             }
+        }
+        }else{
+            JOptionPane.showMessageDialog(rootPane, "Enter Lot Number ", "Error", JOptionPane.INFORMATION_MESSAGE);
         }
 
     }//GEN-LAST:event_jButton6ActionPerformed
