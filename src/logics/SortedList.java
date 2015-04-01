@@ -28,38 +28,38 @@ public class SortedList {
 
         HouseFile hf = new HouseFile();
 
-        List<DataStore> dss = dss = hf.readFile();
+        houses = hf.readFile();
    
-        dss.add(ds);
+        houses.add(ds);
         
-        DataStore[] da = new DataStore[dss.size()];
+        DataStore[] datastore_obj = new DataStore[houses.size()];
 
-        for (int i = 0; i < dss.size(); i++) {
-            System.out.println("da "+dss.get(i).getLotNo());
-            da[i] = dss.get(i);
+        for (int i = 0; i < houses.size(); i++) {
+            
+            datastore_obj[i] = houses.get(i);
         }
 
         
         
-        for (int i = da.length - 1; i > 1; i--) {
+        for (int i = datastore_obj.length - 1; i > 1; i--) {
             for (int j = 0; j < i; j++) {
-                if (da[j].getLotNo() > da[j + 1].getLotNo()) {
-                    DataStore temp = da[j + 1];
-                    da[j + 1] = da[j];
-                    da[j] = temp;
+                if (datastore_obj[j].getLotNo() > datastore_obj[j + 1].getLotNo()) {
+                    DataStore temp = datastore_obj[j + 1];
+                    datastore_obj[j + 1] = datastore_obj[j];
+                    datastore_obj[j] = temp;
                 }
             }
         }
 
         
-        List<DataStore> d1 = new ArrayList<>();
-        for(DataStore d:da){
+        List<DataStore> list_oject = new ArrayList<>();
+        for(DataStore d:datastore_obj){
          
-            d1.add(d);
+            list_oject.add(d);
         }
 
-        hf.saveHouseList(d1);
-        return dss;
+        hf.saveHouseList(list_oject);
+        return houses;
     }
 
 }
