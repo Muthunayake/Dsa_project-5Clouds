@@ -372,6 +372,13 @@ public class RealEstate extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
 
+        jTextField_lotNumber.requestFocusInWindow();
+        jTextField_firstName.enable(false);
+        jTextField_lastName.enable(false);
+        jTextField_numBedRooms.enable(false);
+        jTextField_price.enable(false);
+        jTextField_sqareFeet.enable(false);
+            
         Long lot_no = Long.parseLong(jTextField_lotNumber.getText());
 
         HouseFile hf = new HouseFile();
@@ -418,7 +425,7 @@ public class RealEstate extends javax.swing.JFrame {
 
     private void jTextField_lotNumberKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField_lotNumberKeyTyped
         char c=evt.getKeyChar();
-        if( ((Character.isDigit(c) || (c == KeyEvent.VK_BACK_SPACE)) || (c == KeyEvent.VK_DELETE)) || c == '.'){
+        if( ((Character.isDigit(c) || (c == KeyEvent.VK_BACK_SPACE)) || (c == KeyEvent.VK_DELETE))){
         } else {
             JOptionPane.showMessageDialog(null,"Please Use Only Numbers !");
             evt.consume();
