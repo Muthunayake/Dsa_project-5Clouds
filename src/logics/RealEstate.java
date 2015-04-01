@@ -158,6 +158,12 @@ public class RealEstate extends javax.swing.JFrame {
             }
         });
 
+        jTextField_lastName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField_lastNameKeyTyped(evt);
+            }
+        });
+
         jTextField_firstName.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField_firstNameKeyTyped(evt);
@@ -472,6 +478,15 @@ public class RealEstate extends javax.swing.JFrame {
         } else {
         }
     }//GEN-LAST:event_jTextField_firstNameKeyTyped
+
+    private void jTextField_lastNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField_lastNameKeyTyped
+        char c=evt.getKeyChar();
+        if((Character.isDigit(c))){
+            JOptionPane.showMessageDialog(null,"Please Use Only Characters !");
+            evt.consume();
+        } else {
+        }
+    }//GEN-LAST:event_jTextField_lastNameKeyTyped
 
     public void clearForm() {
 

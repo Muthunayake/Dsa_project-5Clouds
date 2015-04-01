@@ -292,6 +292,9 @@
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextField_lastName">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField_lastNameKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextField_firstName">
       <Events>
