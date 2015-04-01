@@ -490,6 +490,15 @@ public class RealEstate extends javax.swing.JFrame {
 
     public void clearForm() {
 
+        
+        jTextField_firstName.enable(true);
+        jTextField_lastName.enable(true);
+        jTextField_numBedRooms.enable(true);
+        jTextField_price.enable(true);
+        jTextField_sqareFeet.enable(true);
+           
+        
+        
         jTextField_firstName.setText("");
         jTextField_lastName.setText("");
         jTextField_lotNumber.setText("");
