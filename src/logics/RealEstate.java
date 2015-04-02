@@ -35,8 +35,8 @@ public class RealEstate extends javax.swing.JFrame {
         jButton_reset = new javax.swing.JButton();
         jButton_next = new javax.swing.JButton();
         jButton_add = new javax.swing.JButton();
-        jButton_list = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        jButton_Clear = new javax.swing.JButton();
+        jButton_view = new javax.swing.JButton();
         jButton_delete1 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -50,6 +50,7 @@ public class RealEstate extends javax.swing.JFrame {
         jTextField_lastName = new javax.swing.JTextField();
         jTextField_firstName = new javax.swing.JTextField();
         jTextField_lotNumber = new javax.swing.JTextField();
+        jButton_find = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -81,17 +82,17 @@ public class RealEstate extends javax.swing.JFrame {
             }
         });
 
-        jButton_list.setText("Clear");
-        jButton_list.addActionListener(new java.awt.event.ActionListener() {
+        jButton_Clear.setText("Clear");
+        jButton_Clear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_listActionPerformed(evt);
+                jButton_ClearActionPerformed(evt);
             }
         });
 
-        jButton6.setText("Find");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        jButton_view.setText("View");
+        jButton_view.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                jButton_viewActionPerformed(evt);
             }
         });
 
@@ -173,6 +174,13 @@ public class RealEstate extends javax.swing.JFrame {
             }
         });
 
+        jButton_find.setText("Find");
+        jButton_find.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_findActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -180,20 +188,22 @@ public class RealEstate extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel_dis, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jButton_reset, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
-                    .addComponent(jButton_add, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
-                    .addComponent(jButton_list, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton_view, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jButton_next, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
-                            .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(jButton_delete1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jButton_reset, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
+                            .addComponent(jButton_add, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
+                            .addComponent(jButton_Clear, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jButton_next, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jButton_delete1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton_find, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(15, 15, 15))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -229,8 +239,10 @@ public class RealEstate extends javax.swing.JFrame {
                     .addComponent(jButton_delete1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton_list, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton_Clear, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton_find, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton_view, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -258,7 +270,7 @@ public class RealEstate extends javax.swing.JFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jTextField_numBedRooms, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap(195, Short.MAX_VALUE)))
+                    .addContainerGap(251, Short.MAX_VALUE)))
         );
 
         pack();
@@ -266,8 +278,8 @@ public class RealEstate extends javax.swing.JFrame {
 
     private void jButton_resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_resetActionPerformed
 
-        int i = JOptionPane.showConfirmDialog(rootPane, "Do You Want to Reset The File ?", "Warning", JOptionPane.YES_NO_OPTION,JOptionPane.WARNING_MESSAGE);
-        
+        int i = JOptionPane.showConfirmDialog(rootPane, "Do You Want to Reset The File ?", "Warning", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+
         if (i == 0) {
             HouseFile h = new HouseFile();
             try {
@@ -349,44 +361,17 @@ public class RealEstate extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton_addActionPerformed
 
-    private void jButton_listActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_listActionPerformed
+    private void jButton_ClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ClearActionPerformed
         clearForm();
-        ListHouse lh = new ListHouse(this, rootPaneCheckingEnabled, houses);
-        lh.setVisible(true);
-    }//GEN-LAST:event_jButton_listActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_jButton_ClearActionPerformed
 
-        jTextField_lotNumber.requestFocusInWindow();
-        jTextField_firstName.enable(false);
-        jTextField_lastName.enable(false);
-        jTextField_numBedRooms.enable(false);
-        jTextField_price.enable(false);
-        jTextField_sqareFeet.enable(false);
+    private void jButton_viewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_viewActionPerformed
 
-        if (!"".equals(jTextField_lotNumber.getText())) {
+      
 
-            Long lot_no = Long.parseLong(jTextField_lotNumber.getText());
 
-            HouseFile hf = new HouseFile();
-
-            List<DataStore> list = hf.readFile();
-
-            for (DataStore ds : list) {
-
-                if (ds.getLotNo().equals(lot_no)) {
-                    jTextField_firstName.setText(ds.getFName());
-                    jTextField_lastName.setText(ds.getLName());
-                    jTextField_numBedRooms.setText(ds.getNoOfRoom().toString());
-                    jTextField_price.setText(ds.getPrice().toString());
-                    jTextField_sqareFeet.setText(ds.getSqFeet().toString());
-                }
-            }
-        } else {
-            JOptionPane.showMessageDialog(rootPane, "Enter Lot Number ", "Error", JOptionPane.INFORMATION_MESSAGE);
-        }
-
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_jButton_viewActionPerformed
 
     private void jButton_delete1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_delete1ActionPerformed
 
@@ -467,6 +452,42 @@ public class RealEstate extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jTextField_lastNameKeyTyped
 
+    private void jButton_findActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_findActionPerformed
+        //ListHouse lh = new ListHouse(this, rootPaneCheckingEnabled, houses);
+       // lh.setVisible(true);
+        
+        jTextField_lotNumber.requestFocusInWindow();
+        jTextField_firstName.enable(false);
+        jTextField_lastName.enable(false);
+        jTextField_numBedRooms.enable(false);
+        jTextField_price.enable(false);
+        jTextField_sqareFeet.enable(false);
+
+        if (!"".equals(jTextField_lotNumber.getText())) {
+
+            Long lot_no = Long.parseLong(jTextField_lotNumber.getText());
+
+            HouseFile hf = new HouseFile();
+
+            List<DataStore> list = hf.readFile();
+
+            for (DataStore ds : list) {
+
+                if (ds.getLotNo().equals(lot_no)) {
+                    jTextField_firstName.setText(ds.getFName());
+                    jTextField_lastName.setText(ds.getLName());
+                    jTextField_numBedRooms.setText(ds.getNoOfRoom().toString());
+                    jTextField_price.setText(ds.getPrice().toString());
+                    jTextField_sqareFeet.setText(ds.getSqFeet().toString());
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Enter Lot Number ", "Error", JOptionPane.INFORMATION_MESSAGE);
+        }
+
+
+    }//GEN-LAST:event_jButton_findActionPerformed
+
     public void clearForm() {
 
         jTextField_firstName.enable(true);
@@ -512,12 +533,13 @@ public class RealEstate extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton_Clear;
     private javax.swing.JButton jButton_add;
     private javax.swing.JButton jButton_delete1;
-    private javax.swing.JButton jButton_list;
+    private javax.swing.JButton jButton_find;
     private javax.swing.JButton jButton_next;
     private javax.swing.JButton jButton_reset;
+    private javax.swing.JButton jButton_view;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
