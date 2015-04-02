@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-public class RealEstate extends javax.swing.JFrame {
+public class RealEstate extends javax.swing.JFrame implements Listable{
 
     private List<DataStore> houses;
     private int row = 0;
@@ -36,7 +36,6 @@ public class RealEstate extends javax.swing.JFrame {
         jButton_next = new javax.swing.JButton();
         jButton_add = new javax.swing.JButton();
         jButton_Clear = new javax.swing.JButton();
-        jButton_view = new javax.swing.JButton();
         jButton_delete1 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -51,6 +50,14 @@ public class RealEstate extends javax.swing.JFrame {
         jTextField_firstName = new javax.swing.JTextField();
         jTextField_lotNumber = new javax.swing.JTextField();
         jButton_find = new javax.swing.JButton();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        Edit = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -86,13 +93,6 @@ public class RealEstate extends javax.swing.JFrame {
         jButton_Clear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_ClearActionPerformed(evt);
-            }
-        });
-
-        jButton_view.setText("View");
-        jButton_view.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_viewActionPerformed(evt);
             }
         });
 
@@ -163,11 +163,6 @@ public class RealEstate extends javax.swing.JFrame {
             }
         });
 
-        jTextField_lotNumber.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField_lotNumberActionPerformed(evt);
-            }
-        });
         jTextField_lotNumber.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField_lotNumberKeyTyped(evt);
@@ -181,6 +176,52 @@ public class RealEstate extends javax.swing.JFrame {
             }
         });
 
+        jMenu1.setText("File");
+
+        jMenuItem3.setText("Exit");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem3);
+
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Edit");
+
+        jMenuItem2.setText("Clear");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem2);
+
+        Edit.setText("Reset File");
+        Edit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EditActionPerformed(evt);
+            }
+        });
+        jMenu2.add(Edit);
+
+        jMenuBar1.add(jMenu2);
+
+        jMenu3.setText("View");
+
+        jMenuItem1.setText("Sorted List");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem1);
+
+        jMenuBar1.add(jMenu3);
+
+        setJMenuBar(jMenuBar1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -190,20 +231,17 @@ public class RealEstate extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton_view, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jButton_reset, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
+                    .addComponent(jButton_add, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
+                    .addComponent(jButton_Clear, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jButton_reset, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
-                            .addComponent(jButton_add, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
-                            .addComponent(jButton_Clear, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jButton_next, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jButton_delete1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton_find, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton_next, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton_delete1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton_find, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(15, 15, 15))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -241,8 +279,6 @@ public class RealEstate extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton_Clear, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton_find, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton_view, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -270,7 +306,7 @@ public class RealEstate extends javax.swing.JFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jTextField_numBedRooms, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap(251, Short.MAX_VALUE)))
+                    .addContainerGap(195, Short.MAX_VALUE)))
         );
 
         pack();
@@ -278,53 +314,46 @@ public class RealEstate extends javax.swing.JFrame {
 
     private void jButton_resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_resetActionPerformed
 
-        int i = JOptionPane.showConfirmDialog(rootPane, "Do You Want to Reset The File ?", "Warning", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+        resetFile();
 
-        if (i == 0) {
-            HouseFile h = new HouseFile();
-            try {
-                h.clearFile();
-            } catch (Exception e) {
-                System.out.println("erro " + e.getMessage());
-            }
-        }
-
-        clearForm();
     }//GEN-LAST:event_jButton_resetActionPerformed
 
     private void jButton_nextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_nextActionPerformed
         try {
-        checkAdd = false;
-        DataStore house = houses.get(row);
-        jLabel_dis.setText("Next House Displaed : " + (row + 1));
+            checkAdd = false;
+            DataStore house = houses.get(row);
+            jLabel_dis.setText("Next House Displaed : " + (row + 1));
 
-        jTextField_firstName.setText(house.getFName());
-        jTextField_lastName.setText(house.getLName());
-        jTextField_lotNumber.setText(house.getLotNo() + "");
-        jTextField_numBedRooms.setText(house.getNoOfRoom() + "");
-        jTextField_price.setText(house.getPrice() + "");
-        jTextField_sqareFeet.setText(house.getSqFeet() + "");
+            jTextField_firstName.setText(house.getFName());
+            jTextField_lastName.setText(house.getLName());
+            jTextField_lotNumber.setText(house.getLotNo() + "");
+            jTextField_numBedRooms.setText(house.getNoOfRoom() + "");
+            jTextField_price.setText(house.getPrice() + "");
+            jTextField_sqareFeet.setText(house.getSqFeet() + "");
 
-        Integer i = houses.size();
-        if (--i != row) {
-            row++;
-        }    
+            Integer i = houses.size();
+            if (--i != row) {
+                row++;
+            }
         } catch (IndexOutOfBoundsException e) {
-        JOptionPane.showConfirmDialog(rootPane, "File Is Empty You Can't Go to Next Record ", "Error", JOptionPane.CLOSED_OPTION, JOptionPane.ERROR_MESSAGE);
+            
+            JOptionPane.showConfirmDialog(rootPane, "File Is Empty You Can't Go to Next Record ", "Error", JOptionPane.CLOSED_OPTION, JOptionPane.ERROR_MESSAGE);
 
-        }catch(Exception e){
-           JOptionPane.showConfirmDialog(rootPane, "Error", "Error", JOptionPane.CLOSED_OPTION, JOptionPane.ERROR_MESSAGE);
-   
+        } catch (Exception e) {
+            
+            JOptionPane.showConfirmDialog(rootPane, "Error", "Error", JOptionPane.CLOSED_OPTION, JOptionPane.ERROR_MESSAGE);
+
         }
-        
+
     }//GEN-LAST:event_jButton_nextActionPerformed
 
     private void jButton_addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_addActionPerformed
 
         try {
             if (jTextField_lotNumber.getText().equals("") || jTextField_firstName.getText().equals("") || jTextField_lastName.getText().equals("") || jTextField_price.getText().equals("") || jTextField_sqareFeet.getText().equals("") || jTextField_numBedRooms.getText().equals("")) {
-                JOptionPane.showConfirmDialog(rootPane, "You Should Enter Values Before Click Add", "Error", JOptionPane.CANCEL_OPTION,JOptionPane.ERROR_MESSAGE);
-                jTextField_lotNumber.requestFocusInWindow();
+               
+                JOptionPane.showConfirmDialog(rootPane, "You Should Enter Values Before Click Add", "Error", JOptionPane.CANCEL_OPTION, JOptionPane.ERROR_MESSAGE);
+                
             } else {
                 if (checkAdd) {
 
@@ -336,15 +365,17 @@ public class RealEstate extends javax.swing.JFrame {
                     house.setPrice(Long.parseLong(jTextField_price.getText()));
                     house.setSqFeet(Long.parseLong(jTextField_sqareFeet.getText()));
 
-                    Boolean check = false;
-                    for (DataStore h : houses) {
-                        if (Objects.equals(h.getLotNo(), house.getLotNo())) {
-                            check = true;
-                        }
-                    }
+              
+                    Boolean check = compaerList(Long.parseLong(jTextField_lotNumber.getText()));
+                    
+//                    for (DataStore h : houses) {
+//                        if (Objects.equals(h.getLotNo(), house.getLotNo())) {
+//                            check = true;
+//                        }
+//                    }
 
                     if (check) {
-                        JOptionPane.showMessageDialog(rootPane, "Lot Number", "Error", JOptionPane.WARNING_MESSAGE);
+                        JOptionPane.showMessageDialog(rootPane, "Lot Number Error", "Error", JOptionPane.WARNING_MESSAGE);
                     } else {
 
                         SortedList sl = new SortedList();
@@ -358,12 +389,12 @@ public class RealEstate extends javax.swing.JFrame {
                         clearForm();
                     }
                 } else {
-                    JOptionPane.showMessageDialog(rootPane, "You need to reset before add !", "Error", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(rootPane, "You need to Clear The From Before Add !!!", "Error", JOptionPane.WARNING_MESSAGE);
                 }
 
             }
         } catch (NumberFormatException e) {
-            e.printStackTrace();
+           
             JOptionPane.showMessageDialog(rootPane, "You Should Enter Number ", "Error", JOptionPane.WARNING_MESSAGE);
 
         }
@@ -371,24 +402,14 @@ public class RealEstate extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton_addActionPerformed
 
     private void jButton_ClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ClearActionPerformed
+        
         clearForm();
 
     }//GEN-LAST:event_jButton_ClearActionPerformed
 
-    private void jButton_viewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_viewActionPerformed
-
-        HouseFile hf = new HouseFile();
-        houses = hf.readFile();
-        
-        ListHouse lh = new ListHouse(this, rootPaneCheckingEnabled, houses);
-        lh.setVisible(true);
-
-
-    }//GEN-LAST:event_jButton_viewActionPerformed
-
     private void jButton_delete1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_delete1ActionPerformed
 
-         jTextField_lotNumber.requestFocusInWindow();
+        jTextField_lotNumber.requestFocusInWindow();
         jTextField_firstName.enable(false);
         jTextField_lastName.enable(false);
         jTextField_numBedRooms.enable(false);
@@ -397,39 +418,33 @@ public class RealEstate extends javax.swing.JFrame {
 
         if (!"".equals(jTextField_lotNumber.getText())) {
 
-        
-        List<DataStore> newList = new ArrayList<>();
+            List<DataStore> newList = new ArrayList<>();
 
-        boolean c =true;
-        for (DataStore h : houses) {
-            if (!(h.getLotNo().toString().equals(jTextField_lotNumber.getText()))) {
-                newList.add(h);
-                c = false;
-            } 
-        }
-        
-        if(c){
+            boolean c = true;
+            for (DataStore h : houses) {
+                if (!(h.getLotNo().toString().equals(jTextField_lotNumber.getText()))) {
+                    newList.add(h);
+                    c = false;
+                }
+            }
 
-        JOptionPane.showMessageDialog(rootPane, "Successfully Delete", "Success", JOptionPane.INFORMATION_MESSAGE);
-        }
-        else {
-            JOptionPane.showMessageDialog(rootPane, "Delete Failed", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-        clearForm();
+            if (c) {
 
-        HouseFile hf = new HouseFile();
-        hf.saveHouseList(newList);
+                JOptionPane.showMessageDialog(rootPane, "Successfully Delete", "Success", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "Delete Failed", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+            clearForm();
 
-        houses = hf.readFile();
+            HouseFile hf = new HouseFile();
+            hf.saveHouseList(newList);
+
+            houses = hf.readFile();
         } else {
             JOptionPane.showMessageDialog(rootPane, "Enter Lot number to delete", "Error", JOptionPane.WARNING_MESSAGE);
         }
 
     }//GEN-LAST:event_jButton_delete1ActionPerformed
-
-    private void jTextField_lotNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_lotNumberActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField_lotNumberActionPerformed
 
     private void jTextField_lotNumberKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField_lotNumberKeyTyped
         char c = evt.getKeyChar();
@@ -486,8 +501,6 @@ public class RealEstate extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField_lastNameKeyTyped
 
     private void jButton_findActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_findActionPerformed
-        //ListHouse lh = new ListHouse(this, rootPaneCheckingEnabled, houses);
-        // lh.setVisible(true);
 
         jTextField_lotNumber.requestFocusInWindow();
         jTextField_firstName.enable(false);
@@ -516,18 +529,39 @@ public class RealEstate extends javax.swing.JFrame {
                     c = true;
                 }
             }
-            if(c){  
-            }
-            else {
+            if (c) {
+            } else {
                 JOptionPane.showMessageDialog(rootPane, "No value Found ! ", "Error", JOptionPane.ERROR_MESSAGE);
             }
-            
+
         } else {
             JOptionPane.showMessageDialog(rootPane, "Enter Lot Number ", "Error", JOptionPane.INFORMATION_MESSAGE);
         }
 
 
     }//GEN-LAST:event_jButton_findActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        HouseFile hf = new HouseFile();
+        houses = hf.readFile();
+
+        ListHouse lh = new ListHouse(this, rootPaneCheckingEnabled, houses);
+        lh.setVisible(true);
+
+
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+       clearForm();
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditActionPerformed
+        resetFile();
+    }//GEN-LAST:event_EditActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+       System.exit(0);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     public void clearForm() {
 
@@ -548,6 +582,24 @@ public class RealEstate extends javax.swing.JFrame {
         row = 0;
 
         checkAdd = true;
+    }
+
+    public void resetFile() {
+
+        int i = JOptionPane.showConfirmDialog(rootPane, "Do You Want to Reset The File ?", "Warning", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+
+        if (i == 0) {
+            HouseFile h = new HouseFile();
+            try {
+                h.clearFile();
+            } catch (Exception e) {
+                System.out.println("erro " + e.getMessage());
+            }finally{
+              clearForm();
+            }
+        }
+
+      
     }
 
     public static void main(String args[]) {
@@ -574,13 +626,13 @@ public class RealEstate extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem Edit;
     private javax.swing.JButton jButton_Clear;
     private javax.swing.JButton jButton_add;
     private javax.swing.JButton jButton_delete1;
     private javax.swing.JButton jButton_find;
     private javax.swing.JButton jButton_next;
     private javax.swing.JButton jButton_reset;
-    private javax.swing.JButton jButton_view;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -588,6 +640,13 @@ public class RealEstate extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel_dis;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JTextField jTextField_firstName;
     private javax.swing.JTextField jTextField_lastName;
     private javax.swing.JTextField jTextField_lotNumber;
@@ -595,4 +654,18 @@ public class RealEstate extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField_price;
     private javax.swing.JTextField jTextField_sqareFeet;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public Boolean compaerList(Long lotNumber) {
+       
+       Boolean check = false;
+        for (DataStore h : houses) {
+            if (h.getLotNo()==lotNumber) {
+                check = true;
+                break;
+            }
+        }
+        
+        return check;
+    }
 }
