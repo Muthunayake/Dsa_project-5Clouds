@@ -355,6 +355,7 @@ public class RealEstate extends javax.swing.JFrame {
 
             }
         } catch (NumberFormatException e) {
+            e.printStackTrace();
             JOptionPane.showMessageDialog(rootPane, "You Should Enter Number ", "Error", JOptionPane.WARNING_MESSAGE);
 
         }
@@ -368,7 +369,11 @@ public class RealEstate extends javax.swing.JFrame {
 
     private void jButton_viewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_viewActionPerformed
 
-      
+        HouseFile hf = new HouseFile();
+        houses = hf.readFile();
+        
+        ListHouse lh = new ListHouse(this, rootPaneCheckingEnabled, houses);
+        lh.setVisible(true);
 
 
     }//GEN-LAST:event_jButton_viewActionPerformed
@@ -454,8 +459,8 @@ public class RealEstate extends javax.swing.JFrame {
 
     private void jButton_findActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_findActionPerformed
         //ListHouse lh = new ListHouse(this, rootPaneCheckingEnabled, houses);
-       // lh.setVisible(true);
-        
+        // lh.setVisible(true);
+
         jTextField_lotNumber.requestFocusInWindow();
         jTextField_firstName.enable(false);
         jTextField_lastName.enable(false);
