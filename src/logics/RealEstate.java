@@ -504,6 +504,7 @@ public class RealEstate extends javax.swing.JFrame {
 
             List<DataStore> list = hf.readFile();
 
+            boolean c = false;
             for (DataStore ds : list) {
 
                 if (ds.getLotNo().equals(lot_no)) {
@@ -512,8 +513,15 @@ public class RealEstate extends javax.swing.JFrame {
                     jTextField_numBedRooms.setText(ds.getNoOfRoom().toString());
                     jTextField_price.setText(ds.getPrice().toString());
                     jTextField_sqareFeet.setText(ds.getSqFeet().toString());
+                    c = true;
                 }
             }
+            if(c){  
+            }
+            else {
+                JOptionPane.showMessageDialog(rootPane, "No value Found ! ", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+            
         } else {
             JOptionPane.showMessageDialog(rootPane, "Enter Lot Number ", "Error", JOptionPane.INFORMATION_MESSAGE);
         }
