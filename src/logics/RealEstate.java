@@ -266,7 +266,7 @@ public class RealEstate extends javax.swing.JFrame {
 
     private void jButton_resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_resetActionPerformed
 
-        int i = JOptionPane.showConfirmDialog(rootPane, "Do You Want to Reset The File ?", "Warning", JOptionPane.YES_NO_CANCEL_OPTION);
+        int i = JOptionPane.showConfirmDialog(rootPane, "Do You Want to Reset The File ?", "Warning", JOptionPane.YES_NO_OPTION,JOptionPane.WARNING_MESSAGE);
         
         if (i == 0) {
             HouseFile h = new HouseFile();
