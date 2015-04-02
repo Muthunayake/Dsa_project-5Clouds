@@ -314,8 +314,8 @@ public class RealEstate extends javax.swing.JFrame {
     private void jButton_addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_addActionPerformed
 
         try {
-            if (jTextField_lotNumber.getText().equals("") || jTextField_firstName.getText().equals("")) {
-                JOptionPane.showMessageDialog(rootPane, "You Should Enter Values ", "Error", JOptionPane.WARNING_MESSAGE);
+            if (jTextField_lotNumber.getText().equals("") || jTextField_firstName.getText().equals("") || jTextField_lastName.getText().equals("") || jTextField_price.getText().equals("") || jTextField_sqareFeet.getText().equals("") || jTextField_numBedRooms.getText().equals("")) {
+                JOptionPane.showConfirmDialog(rootPane, "You Should Enter Values Before Click Add", "Error", JOptionPane.CANCEL_OPTION,JOptionPane.ERROR_MESSAGE);
                 jTextField_lotNumber.requestFocusInWindow();
             } else {
                 if (checkAdd) {
