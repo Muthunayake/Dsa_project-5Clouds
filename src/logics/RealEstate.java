@@ -358,7 +358,7 @@ public class RealEstate extends javax.swing.JFrame {
                         clearForm();
                     }
                 } else {
-                    JOptionPane.showMessageDialog(rootPane, "You need to rest befor add !", "Error", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(rootPane, "You need to reset before add !", "Error", JOptionPane.WARNING_MESSAGE);
                 }
 
             }
@@ -400,14 +400,21 @@ public class RealEstate extends javax.swing.JFrame {
         
         List<DataStore> newList = new ArrayList<>();
 
+        boolean c =true;
         for (DataStore h : houses) {
             if (!(h.getLotNo().toString().equals(jTextField_lotNumber.getText()))) {
                 newList.add(h);
-            }
+                c = false;
+            } 
         }
+        
+        if(c){
 
         JOptionPane.showMessageDialog(rootPane, "Successfully Delete", "Success", JOptionPane.INFORMATION_MESSAGE);
-
+        }
+        else {
+            JOptionPane.showMessageDialog(rootPane, "Delete Failed", "Error", JOptionPane.ERROR_MESSAGE);
+        }
         clearForm();
 
         HouseFile hf = new HouseFile();
@@ -415,7 +422,7 @@ public class RealEstate extends javax.swing.JFrame {
 
         houses = hf.readFile();
         } else {
-            JOptionPane.showMessageDialog(rootPane, "Enter Lot number to delete", "Error", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(rootPane, "Enter Lot number to delete", "Error", JOptionPane.WARNING_MESSAGE);
         }
 
     }//GEN-LAST:event_jButton_delete1ActionPerformed
