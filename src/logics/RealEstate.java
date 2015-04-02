@@ -265,13 +265,19 @@ public class RealEstate extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton_resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_resetActionPerformed
+
+        int i = JOptionPane.showConfirmDialog(rootPane, "Do You Want to Reset The File ?", "Warning", JOptionPane.YES_NO_CANCEL_OPTION);
         
-        HouseFile h = new HouseFile();
-        try {
-            h.clearFile();
-        } catch (Exception e) {
-            System.out.println("erro "+e.getMessage());
+        if (i == 0) {
+            HouseFile h = new HouseFile();
+            try {
+                h.clearFile();
+            } catch (Exception e) {
+                System.out.println("erro " + e.getMessage());
+            }
         }
+
+        clearForm();
     }//GEN-LAST:event_jButton_resetActionPerformed
 
     private void jButton_nextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_nextActionPerformed
@@ -320,7 +326,6 @@ public class RealEstate extends javax.swing.JFrame {
                     if (check) {
                         JOptionPane.showMessageDialog(rootPane, "Lot Number", "Error", JOptionPane.WARNING_MESSAGE);
                     } else {
-                
 
                         SortedList sl = new SortedList();
                         sl.saveFile(house);
@@ -347,7 +352,7 @@ public class RealEstate extends javax.swing.JFrame {
     private void jButton_listActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_listActionPerformed
         clearForm();
         ListHouse lh = new ListHouse(this, rootPaneCheckingEnabled, houses);
-        lh.setVisible(true);    
+        lh.setVisible(true);
     }//GEN-LAST:event_jButton_listActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -358,26 +363,26 @@ public class RealEstate extends javax.swing.JFrame {
         jTextField_numBedRooms.enable(false);
         jTextField_price.enable(false);
         jTextField_sqareFeet.enable(false);
-           
-        if(!"".equals(jTextField_lotNumber.getText())) {
-            
-        Long lot_no = Long.parseLong(jTextField_lotNumber.getText());
 
-        HouseFile hf = new HouseFile();
+        if (!"".equals(jTextField_lotNumber.getText())) {
 
-        List<DataStore> list = hf.readFile();
+            Long lot_no = Long.parseLong(jTextField_lotNumber.getText());
 
-        for (DataStore ds : list) {
+            HouseFile hf = new HouseFile();
 
-            if (ds.getLotNo().equals(lot_no)) {
-                jTextField_firstName.setText(ds.getFName());
-                jTextField_lastName.setText(ds.getLName());
-                jTextField_numBedRooms.setText(ds.getNoOfRoom().toString());
-                jTextField_price.setText(ds.getPrice().toString());
-                jTextField_sqareFeet.setText(ds.getSqFeet().toString());
+            List<DataStore> list = hf.readFile();
+
+            for (DataStore ds : list) {
+
+                if (ds.getLotNo().equals(lot_no)) {
+                    jTextField_firstName.setText(ds.getFName());
+                    jTextField_lastName.setText(ds.getLName());
+                    jTextField_numBedRooms.setText(ds.getNoOfRoom().toString());
+                    jTextField_price.setText(ds.getPrice().toString());
+                    jTextField_sqareFeet.setText(ds.getSqFeet().toString());
+                }
             }
-        }
-        }else{
+        } else {
             JOptionPane.showMessageDialog(rootPane, "Enter Lot Number ", "Error", JOptionPane.INFORMATION_MESSAGE);
         }
 
@@ -409,54 +414,54 @@ public class RealEstate extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField_lotNumberActionPerformed
 
     private void jTextField_lotNumberKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField_lotNumberKeyTyped
-        char c=evt.getKeyChar();
-        if( ((Character.isDigit(c) || (c == KeyEvent.VK_BACK_SPACE)) || (c == KeyEvent.VK_DELETE))){
+        char c = evt.getKeyChar();
+        if (((Character.isDigit(c) || (c == KeyEvent.VK_BACK_SPACE)) || (c == KeyEvent.VK_DELETE))) {
         } else {
-            JOptionPane.showMessageDialog(null,"Please Use Only Numbers !");
+            JOptionPane.showMessageDialog(null, "Please Use Only Numbers !");
             evt.consume();
         }
     }//GEN-LAST:event_jTextField_lotNumberKeyTyped
 
     private void jTextField_priceKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField_priceKeyTyped
-        char c=evt.getKeyChar();
-        if( ((Character.isDigit(c) || (c == KeyEvent.VK_BACK_SPACE)) || (c == KeyEvent.VK_DELETE)) || c == '.'){
+        char c = evt.getKeyChar();
+        if (((Character.isDigit(c) || (c == KeyEvent.VK_BACK_SPACE)) || (c == KeyEvent.VK_DELETE)) || c == '.') {
         } else {
-            JOptionPane.showMessageDialog(null,"Please Use Only Numbers !");
+            JOptionPane.showMessageDialog(null, "Please Use Only Numbers !");
             evt.consume();
         }
     }//GEN-LAST:event_jTextField_priceKeyTyped
 
     private void jTextField_sqareFeetKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField_sqareFeetKeyTyped
-        char c=evt.getKeyChar();
-        if( ((Character.isDigit(c) || (c == KeyEvent.VK_BACK_SPACE)) || (c == KeyEvent.VK_DELETE)) || c == '.'){
+        char c = evt.getKeyChar();
+        if (((Character.isDigit(c) || (c == KeyEvent.VK_BACK_SPACE)) || (c == KeyEvent.VK_DELETE)) || c == '.') {
         } else {
-            JOptionPane.showMessageDialog(null,"Please Use Only Numbers !");
+            JOptionPane.showMessageDialog(null, "Please Use Only Numbers !");
             evt.consume();
         }
     }//GEN-LAST:event_jTextField_sqareFeetKeyTyped
 
     private void jTextField_numBedRoomsKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField_numBedRoomsKeyTyped
-        char c=evt.getKeyChar();
-        if( ((Character.isDigit(c) || (c == KeyEvent.VK_BACK_SPACE)) || (c == KeyEvent.VK_DELETE))){
+        char c = evt.getKeyChar();
+        if (((Character.isDigit(c) || (c == KeyEvent.VK_BACK_SPACE)) || (c == KeyEvent.VK_DELETE))) {
         } else {
-            JOptionPane.showMessageDialog(null,"Please Use Only Numbers !");
+            JOptionPane.showMessageDialog(null, "Please Use Only Numbers !");
             evt.consume();
         }
     }//GEN-LAST:event_jTextField_numBedRoomsKeyTyped
 
     private void jTextField_firstNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField_firstNameKeyTyped
-        char c=evt.getKeyChar();
-        if((Character.isDigit(c))){
-            JOptionPane.showMessageDialog(null,"Please Use Only Characters !");
+        char c = evt.getKeyChar();
+        if ((Character.isDigit(c))) {
+            JOptionPane.showMessageDialog(null, "Please Use Only Characters !");
             evt.consume();
         } else {
         }
     }//GEN-LAST:event_jTextField_firstNameKeyTyped
 
     private void jTextField_lastNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField_lastNameKeyTyped
-        char c=evt.getKeyChar();
-        if((Character.isDigit(c))){
-            JOptionPane.showMessageDialog(null,"Please Use Only Characters !");
+        char c = evt.getKeyChar();
+        if ((Character.isDigit(c))) {
+            JOptionPane.showMessageDialog(null, "Please Use Only Characters !");
             evt.consume();
         } else {
         }
@@ -464,15 +469,12 @@ public class RealEstate extends javax.swing.JFrame {
 
     public void clearForm() {
 
-        
         jTextField_firstName.enable(true);
         jTextField_lastName.enable(true);
         jTextField_numBedRooms.enable(true);
         jTextField_price.enable(true);
         jTextField_sqareFeet.enable(true);
-           
-        
-        
+
         jTextField_firstName.setText("");
         jTextField_lastName.setText("");
         jTextField_lotNumber.setText("");
