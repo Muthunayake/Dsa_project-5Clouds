@@ -293,7 +293,7 @@ public class RealEstate extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton_resetActionPerformed
 
     private void jButton_nextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_nextActionPerformed
-
+        try {
         checkAdd = false;
         DataStore house = houses.get(row);
         jLabel_dis.setText("Next House Displaed : " + (row + 1));
@@ -308,7 +308,15 @@ public class RealEstate extends javax.swing.JFrame {
         Integer i = houses.size();
         if (--i != row) {
             row++;
+        }    
+        } catch (IndexOutOfBoundsException e) {
+        JOptionPane.showConfirmDialog(rootPane, "File Is Empty You Can't Go to Next Record ", "Error", JOptionPane.CLOSED_OPTION, JOptionPane.ERROR_MESSAGE);
+
+        }catch(Exception e){
+           JOptionPane.showConfirmDialog(rootPane, "Error", "Error", JOptionPane.CLOSED_OPTION, JOptionPane.ERROR_MESSAGE);
+   
         }
+        
     }//GEN-LAST:event_jButton_nextActionPerformed
 
     private void jButton_addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_addActionPerformed
