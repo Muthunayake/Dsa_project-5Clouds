@@ -265,8 +265,13 @@ public class RealEstate extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton_resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_resetActionPerformed
- 
-       
+        
+        HouseFile h = new HouseFile();
+        try {
+            h.clearFile();
+        } catch (Exception e) {
+            System.out.println("erro "+e.getMessage());
+        }
     }//GEN-LAST:event_jButton_resetActionPerformed
 
     private void jButton_nextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_nextActionPerformed
@@ -315,8 +320,7 @@ public class RealEstate extends javax.swing.JFrame {
                     if (check) {
                         JOptionPane.showMessageDialog(rootPane, "Lot Number", "Error", JOptionPane.WARNING_MESSAGE);
                     } else {
-                //                HouseFile FileSave = new HouseFile();
-                        //                FileSave.saveHouseFile(house);
+                
 
                         SortedList sl = new SortedList();
                         sl.saveFile(house);
@@ -341,9 +345,9 @@ public class RealEstate extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton_addActionPerformed
 
     private void jButton_listActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_listActionPerformed
-      //  ListHouse lh = new ListHouse(this, rootPaneCheckingEnabled, houses);
-      //  lh.setVisible(true);
         clearForm();
+        ListHouse lh = new ListHouse(this, rootPaneCheckingEnabled, houses);
+        lh.setVisible(true);    
     }//GEN-LAST:event_jButton_listActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed

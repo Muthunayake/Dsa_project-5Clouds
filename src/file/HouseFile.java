@@ -108,7 +108,6 @@ public class HouseFile {
         try {
             String text = null;
             BufferedWriter output = null;
-            System.out.println(":::::::::::::::::::::::::::::::::::");
             File file = new File("HouseData");
             output = new BufferedWriter(new FileWriter(file));
             output.write("");
