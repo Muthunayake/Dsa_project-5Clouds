@@ -380,6 +380,16 @@ public class RealEstate extends javax.swing.JFrame {
 
     private void jButton_delete1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_delete1ActionPerformed
 
+         jTextField_lotNumber.requestFocusInWindow();
+        jTextField_firstName.enable(false);
+        jTextField_lastName.enable(false);
+        jTextField_numBedRooms.enable(false);
+        jTextField_price.enable(false);
+        jTextField_sqareFeet.enable(false);
+
+        if (!"".equals(jTextField_lotNumber.getText())) {
+
+        
         List<DataStore> newList = new ArrayList<>();
 
         for (DataStore h : houses) {
@@ -396,6 +406,9 @@ public class RealEstate extends javax.swing.JFrame {
         hf.saveHouseList(newList);
 
         houses = hf.readFile();
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Enter Lot number to delete", "Error", JOptionPane.INFORMATION_MESSAGE);
+        }
 
     }//GEN-LAST:event_jButton_delete1ActionPerformed
 
