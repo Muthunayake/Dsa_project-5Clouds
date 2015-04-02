@@ -20,14 +20,14 @@ import java.util.logging.Logger;
 public class HouseFile {
 
     public List<DataStore> readFile() {
-        
+
         List<DataStore> houses = new ArrayList<>();
 
         try {
             BufferedReader br = new BufferedReader(new FileReader("HouseData"));
 
             String line;
-                while ((line = br.readLine()) != null) {
+            while ((line = br.readLine()) != null) {
 //                System.out.println("line " + line);
                 String[] rows = line.split("\t");
 //                System.out.println("rows " + Arrays.toString(rows));
@@ -103,4 +103,19 @@ public class HouseFile {
             System.err.println("IOException: " + ioe.getMessage());
         }
     }
+
+    public void clearFile() {
+        try {
+            String text = null;
+            BufferedWriter output = null;
+            System.out.println(":::::::::::::::::::::::::::::::::::");
+            File file = new File("HouseData");
+            output = new BufferedWriter(new FileWriter(file));
+            output.write("");
+            output.close();
+        } catch (Exception ioe) {
+            System.err.println("IOException: " + ioe.getMessage());
+        }
+    }
+
 }
