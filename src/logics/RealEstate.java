@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-public class RealEstate extends javax.swing.JFrame implements Listable{
+public class RealEstate extends javax.swing.JFrame implements Listable {
 
     private List<DataStore> houses;
     private int row = 0;
@@ -320,7 +320,6 @@ public class RealEstate extends javax.swing.JFrame implements Listable{
 
     private void jButton_nextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_nextActionPerformed
         try {
-            checkAdd = false;
             DataStore house = houses.get(row);
             jLabel_dis.setText("Next House Displaed : " + (row + 1));
 
@@ -335,12 +334,13 @@ public class RealEstate extends javax.swing.JFrame implements Listable{
             if (--i != row) {
                 row++;
             }
+
         } catch (IndexOutOfBoundsException e) {
-            
+
             JOptionPane.showConfirmDialog(rootPane, "File Is Empty You Can't Go to Next Record ", "Error", JOptionPane.CLOSED_OPTION, JOptionPane.ERROR_MESSAGE);
 
         } catch (Exception e) {
-            
+
             JOptionPane.showConfirmDialog(rootPane, "Error", "Error", JOptionPane.CLOSED_OPTION, JOptionPane.ERROR_MESSAGE);
 
         }
@@ -351,9 +351,9 @@ public class RealEstate extends javax.swing.JFrame implements Listable{
 
         try {
             if (jTextField_lotNumber.getText().equals("") || jTextField_firstName.getText().equals("") || jTextField_lastName.getText().equals("") || jTextField_price.getText().equals("") || jTextField_sqareFeet.getText().equals("") || jTextField_numBedRooms.getText().equals("")) {
-               
+
                 JOptionPane.showConfirmDialog(rootPane, "You Should Enter Values Before Click Add", "Error", JOptionPane.CANCEL_OPTION, JOptionPane.ERROR_MESSAGE);
-                
+
             } else {
                 if (checkAdd) {
 
@@ -365,14 +365,7 @@ public class RealEstate extends javax.swing.JFrame implements Listable{
                     house.setPrice(Long.parseLong(jTextField_price.getText()));
                     house.setSqFeet(Long.parseLong(jTextField_sqareFeet.getText()));
 
-              
                     Boolean check = compaerList(Long.parseLong(jTextField_lotNumber.getText()));
-                    
-//                    for (DataStore h : houses) {
-//                        if (Objects.equals(h.getLotNo(), house.getLotNo())) {
-//                            check = true;
-//                        }
-//                    }
 
                     if (check) {
                         JOptionPane.showMessageDialog(rootPane, "Lot Number Error", "Error", JOptionPane.WARNING_MESSAGE);
@@ -394,7 +387,7 @@ public class RealEstate extends javax.swing.JFrame implements Listable{
 
             }
         } catch (NumberFormatException e) {
-           
+
             JOptionPane.showMessageDialog(rootPane, "You Should Enter Number ", "Error", JOptionPane.WARNING_MESSAGE);
 
         }
@@ -402,7 +395,7 @@ public class RealEstate extends javax.swing.JFrame implements Listable{
     }//GEN-LAST:event_jButton_addActionPerformed
 
     private void jButton_ClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_ClearActionPerformed
-        
+
         clearForm();
 
     }//GEN-LAST:event_jButton_ClearActionPerformed
@@ -425,8 +418,7 @@ public class RealEstate extends javax.swing.JFrame implements Listable{
                 if (!(h.getLotNo().toString().equals(jTextField_lotNumber.getText()))) {
                     newList.add(h);
                     c = false;
-                }
-                else {
+                } else {
                     c = true;
                 }
             }
@@ -555,7 +547,7 @@ public class RealEstate extends javax.swing.JFrame implements Listable{
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-       clearForm();
+        clearForm();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void EditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditActionPerformed
@@ -563,7 +555,7 @@ public class RealEstate extends javax.swing.JFrame implements Listable{
     }//GEN-LAST:event_EditActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-       System.exit(0);
+        System.exit(0);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     public void clearForm() {
@@ -590,19 +582,19 @@ public class RealEstate extends javax.swing.JFrame implements Listable{
     public void resetFile() {
 
         int i = JOptionPane.showConfirmDialog(rootPane, "Do You Want to Reset The File ?", "Warning", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+        HouseFile h = new HouseFile();
 
         if (i == 0) {
-            HouseFile h = new HouseFile();
             try {
                 h.clearFile();
             } catch (Exception e) {
                 System.out.println("erro " + e.getMessage());
-            }finally{
-              clearForm();
+            } finally {
+                clearForm();
             }
         }
 
-      
+        houses = h.readFile();
     }
 
     public static void main(String args[]) {
@@ -660,15 +652,15 @@ public class RealEstate extends javax.swing.JFrame implements Listable{
 
     @Override
     public Boolean compaerList(Long lotNumber) {
-       
-       Boolean check = false;
+
+        Boolean check = false;
         for (DataStore h : houses) {
-            if (h.getLotNo()==lotNumber) {
+            if (h.getLotNo() == lotNumber) {
                 check = true;
                 break;
             }
         }
-        
+
         return check;
     }
 }
