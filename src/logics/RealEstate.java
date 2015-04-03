@@ -420,11 +420,11 @@ public class RealEstate extends javax.swing.JFrame implements Listable{
 
             List<DataStore> newList = new ArrayList<>();
 
-            boolean c = true;
+            boolean c = false;
             for (DataStore h : houses) {
                 if (!(h.getLotNo().toString().equals(jTextField_lotNumber.getText()))) {
                     newList.add(h);
-                    c = false;
+                    c = true;
                 }
             }
 
