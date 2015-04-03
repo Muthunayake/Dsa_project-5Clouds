@@ -522,10 +522,13 @@ public class RealEstate extends javax.swing.JFrame implements Listable {
                     jTextField_price.setText(ds.getPrice().toString());
                     jTextField_sqareFeet.setText(ds.getSqFeet().toString());
                     c = true;
+                } else {
+                    c = false;
                 }
             }
             if (c) {
-            } else {
+            }
+            else {
                 JOptionPane.showMessageDialog(rootPane, "No value Found ! ", "Error", JOptionPane.ERROR_MESSAGE);
             }
 
