@@ -322,31 +322,37 @@
     </Component>
     <Component class="javax.swing.JTextField" name="jTextField_numBedRooms">
       <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField_numBedRoomsActionPerformed"/>
         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField_numBedRoomsKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextField_price">
       <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField_priceActionPerformed"/>
         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField_priceKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextField_sqareFeet">
       <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField_sqareFeetActionPerformed"/>
         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField_sqareFeetKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextField_lastName">
       <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField_lastNameActionPerformed"/>
         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField_lastNameKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextField_firstName">
       <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField_firstNameActionPerformed"/>
         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField_firstNameKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextField_lotNumber">
       <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField_lotNumberActionPerformed"/>
         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField_lotNumberKeyTyped"/>
       </Events>
     </Component>

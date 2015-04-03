@@ -133,36 +133,66 @@ public class RealEstate extends javax.swing.JFrame implements Listable {
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel6.setText("Number Of Bedrooms:");
 
+        jTextField_numBedRooms.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField_numBedRoomsActionPerformed(evt);
+            }
+        });
         jTextField_numBedRooms.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField_numBedRoomsKeyTyped(evt);
             }
         });
 
+        jTextField_price.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField_priceActionPerformed(evt);
+            }
+        });
         jTextField_price.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField_priceKeyTyped(evt);
             }
         });
 
+        jTextField_sqareFeet.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField_sqareFeetActionPerformed(evt);
+            }
+        });
         jTextField_sqareFeet.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField_sqareFeetKeyTyped(evt);
             }
         });
 
+        jTextField_lastName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField_lastNameActionPerformed(evt);
+            }
+        });
         jTextField_lastName.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField_lastNameKeyTyped(evt);
             }
         });
 
+        jTextField_firstName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField_firstNameActionPerformed(evt);
+            }
+        });
         jTextField_firstName.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField_firstNameKeyTyped(evt);
             }
         });
 
+        jTextField_lotNumber.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField_lotNumberActionPerformed(evt);
+            }
+        });
         jTextField_lotNumber.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField_lotNumberKeyTyped(evt);
@@ -443,7 +473,7 @@ public class RealEstate extends javax.swing.JFrame implements Listable {
 
     private void jTextField_lotNumberKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField_lotNumberKeyTyped
         char c = evt.getKeyChar();
-        if (((Character.isDigit(c) || (c == KeyEvent.VK_BACK_SPACE)) || (c == KeyEvent.VK_DELETE))) {
+        if (((Character.isDigit(c) || (c == KeyEvent.VK_BACK_SPACE)) || (c == KeyEvent.VK_DELETE)  || (c == KeyEvent.VK_ENTER))) {
         } else {
             JOptionPane.showMessageDialog(rootPane, "Please Use Only Numbers !",  "Warning", JOptionPane.WARNING_MESSAGE);
             evt.consume();
@@ -452,7 +482,7 @@ public class RealEstate extends javax.swing.JFrame implements Listable {
 
     private void jTextField_priceKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField_priceKeyTyped
         char c = evt.getKeyChar();
-        if (((Character.isDigit(c) || (c == KeyEvent.VK_BACK_SPACE)) || (c == KeyEvent.VK_DELETE)) || c == '.') {
+        if (((Character.isDigit(c) || (c == KeyEvent.VK_BACK_SPACE)) || (c == KeyEvent.VK_DELETE)) || (c == KeyEvent.VK_ENTER) || c == '.') {
         } else {
             JOptionPane.showMessageDialog(rootPane, "Please Use Only Numbers !", "Warning", JOptionPane.WARNING_MESSAGE);
             evt.consume();
@@ -461,7 +491,7 @@ public class RealEstate extends javax.swing.JFrame implements Listable {
 
     private void jTextField_sqareFeetKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField_sqareFeetKeyTyped
         char c = evt.getKeyChar();
-        if (((Character.isDigit(c) || (c == KeyEvent.VK_BACK_SPACE)) || (c == KeyEvent.VK_DELETE)) || c == '.') {
+        if (((Character.isDigit(c) || (c == KeyEvent.VK_BACK_SPACE)) || (c == KeyEvent.VK_DELETE)) || (c == KeyEvent.VK_ENTER) || c == '.') {
         } else {
             JOptionPane.showMessageDialog(rootPane, "Please Use Only Numbers !", "Warning", JOptionPane.WARNING_MESSAGE);
             evt.consume();
@@ -470,7 +500,7 @@ public class RealEstate extends javax.swing.JFrame implements Listable {
 
     private void jTextField_numBedRoomsKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField_numBedRoomsKeyTyped
         char c = evt.getKeyChar();
-        if (((Character.isDigit(c) || (c == KeyEvent.VK_BACK_SPACE)) || (c == KeyEvent.VK_DELETE))) {
+        if (((Character.isDigit(c) || (c == KeyEvent.VK_BACK_SPACE)) || (c == KeyEvent.VK_DELETE) || (c == KeyEvent.VK_ENTER))) {
         } else {
             JOptionPane.showMessageDialog(rootPane, "Please Use Only Numbers !", "Warning", JOptionPane.WARNING_MESSAGE);
             evt.consume();
@@ -560,6 +590,30 @@ public class RealEstate extends javax.swing.JFrame implements Listable {
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jTextField_lotNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_lotNumberActionPerformed
+        jTextField_lotNumber.transferFocus();
+    }//GEN-LAST:event_jTextField_lotNumberActionPerformed
+
+    private void jTextField_firstNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_firstNameActionPerformed
+        jTextField_firstName.transferFocus();
+    }//GEN-LAST:event_jTextField_firstNameActionPerformed
+
+    private void jTextField_lastNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_lastNameActionPerformed
+        jTextField_lastName.transferFocus();
+    }//GEN-LAST:event_jTextField_lastNameActionPerformed
+
+    private void jTextField_priceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_priceActionPerformed
+        jTextField_price.transferFocus();
+    }//GEN-LAST:event_jTextField_priceActionPerformed
+
+    private void jTextField_sqareFeetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_sqareFeetActionPerformed
+        jTextField_sqareFeet.transferFocus();
+    }//GEN-LAST:event_jTextField_sqareFeetActionPerformed
+
+    private void jTextField_numBedRoomsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_numBedRoomsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField_numBedRoomsActionPerformed
 
     public void clearForm() {
 
