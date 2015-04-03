@@ -424,6 +424,9 @@ public class RealEstate extends javax.swing.JFrame implements Listable{
             for (DataStore h : houses) {
                 if (!(h.getLotNo().toString().equals(jTextField_lotNumber.getText()))) {
                     newList.add(h);
+                    c = false;
+                }
+                else {
                     c = true;
                 }
             }
