@@ -1,12 +1,21 @@
 package logics;
 
 import file.HouseFile;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -17,14 +26,23 @@ public class RealEstate extends javax.swing.JFrame implements Listable {
     private int row = 0;
 
     private Boolean checkAdd = true;
-
+    
     public RealEstate() {
         initComponents();
         setLocationRelativeTo(null);   //this is set application to middle when it start
-
+      
         HouseFile fm = new HouseFile();     //this is for add button
         houses = fm.readFile();
 
+        String imagePath = "/image/home.png";       //this for icon image
+        InputStream inputStream = RealEstate.class.getResourceAsStream(imagePath);
+        try {
+            BufferedImage myimg = ImageIO.read(inputStream);
+            
+            this.setIconImage(myimg);
+        } catch (IOException ex) {
+            Logger.getLogger(RealEstate.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -398,7 +416,7 @@ public class RealEstate extends javax.swing.JFrame implements Listable {
                     Boolean check = compaerList(Long.parseLong(jTextField_lotNumber.getText()));
 
                     if (check) {
-                        JOptionPane.showMessageDialog(rootPane, "Lot Number Error !", "Error", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(rootPane, "Lot No is Duplicated !!!", "Error", JOptionPane.ERROR_MESSAGE);
                     } else {
 
                         SortedList sl = new SortedList();
