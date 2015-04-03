@@ -337,7 +337,7 @@ public class RealEstate extends javax.swing.JFrame implements Listable {
 
         } catch (IndexOutOfBoundsException e) {
 
-            JOptionPane.showConfirmDialog(rootPane, "File Is Empty You Can't Go to Next Record ", "Error", JOptionPane.CLOSED_OPTION, JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(rootPane, "File is Empty You Can't Move to Next Record !", "Error", JOptionPane.ERROR_MESSAGE);
 
         } catch (Exception e) {
 
@@ -352,7 +352,7 @@ public class RealEstate extends javax.swing.JFrame implements Listable {
         try {
             if (jTextField_lotNumber.getText().equals("") || jTextField_firstName.getText().equals("") || jTextField_lastName.getText().equals("") || jTextField_price.getText().equals("") || jTextField_sqareFeet.getText().equals("") || jTextField_numBedRooms.getText().equals("")) {
 
-                JOptionPane.showConfirmDialog(rootPane, "You Should Enter Values Before Click Add", "Error", JOptionPane.CANCEL_OPTION, JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(rootPane, "Enter Values Before Add !", "Warning", JOptionPane.WARNING_MESSAGE);
 
             } else {
                 if (checkAdd) {
@@ -368,7 +368,7 @@ public class RealEstate extends javax.swing.JFrame implements Listable {
                     Boolean check = compaerList(Long.parseLong(jTextField_lotNumber.getText()));
 
                     if (check) {
-                        JOptionPane.showMessageDialog(rootPane, "Lot Number Error", "Error", JOptionPane.WARNING_MESSAGE);
+                        JOptionPane.showMessageDialog(rootPane, "Lot Number Error !", "Error", JOptionPane.ERROR_MESSAGE);
                     } else {
 
                         SortedList sl = new SortedList();
@@ -377,18 +377,18 @@ public class RealEstate extends javax.swing.JFrame implements Listable {
                         HouseFile fileRead = new HouseFile();
                         houses = fileRead.readFile();
 
-                        JOptionPane.showMessageDialog(rootPane, "Successfully Added", "Success", JOptionPane.INFORMATION_MESSAGE);
+                        JOptionPane.showMessageDialog(rootPane, "Successfully Added !", "Success", JOptionPane.INFORMATION_MESSAGE);
 
                         clearForm();
                     }
                 } else {
-                    JOptionPane.showMessageDialog(rootPane, "You need to Clear The From Before Add !!!", "Error", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(rootPane, "You need to Clear the Form Before Add !", "Warning", JOptionPane.WARNING_MESSAGE);
                 }
 
             }
         } catch (NumberFormatException e) {
 
-            JOptionPane.showMessageDialog(rootPane, "You Should Enter Number ", "Error", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(rootPane, "You Should Enter Number !", "Warning", JOptionPane.WARNING_MESSAGE);
 
         }
 
@@ -425,9 +425,9 @@ public class RealEstate extends javax.swing.JFrame implements Listable {
 
             if (c) {
 
-                JOptionPane.showMessageDialog(rootPane, "Successfully Delete", "Success", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(rootPane, "Successfully Deleted !", "Success", JOptionPane.INFORMATION_MESSAGE);
             } else {
-                JOptionPane.showMessageDialog(rootPane, "Delete Failed", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(rootPane, "Delete Failed !", "Error", JOptionPane.ERROR_MESSAGE);
             }
             clearForm();
 
@@ -436,7 +436,7 @@ public class RealEstate extends javax.swing.JFrame implements Listable {
 
             houses = hf.readFile();
         } else {
-            JOptionPane.showMessageDialog(rootPane, "Enter Lot number to delete", "Error", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(rootPane, "Enter Lot Number to Delete !", "Warning", JOptionPane.WARNING_MESSAGE);
         }
 
     }//GEN-LAST:event_jButton_delete1ActionPerformed
@@ -445,7 +445,7 @@ public class RealEstate extends javax.swing.JFrame implements Listable {
         char c = evt.getKeyChar();
         if (((Character.isDigit(c) || (c == KeyEvent.VK_BACK_SPACE)) || (c == KeyEvent.VK_DELETE))) {
         } else {
-            JOptionPane.showMessageDialog(null, "Please Use Only Numbers !");
+            JOptionPane.showMessageDialog(rootPane, "Please Use Only Numbers !",  "Warning", JOptionPane.WARNING_MESSAGE);
             evt.consume();
         }
     }//GEN-LAST:event_jTextField_lotNumberKeyTyped
@@ -454,7 +454,7 @@ public class RealEstate extends javax.swing.JFrame implements Listable {
         char c = evt.getKeyChar();
         if (((Character.isDigit(c) || (c == KeyEvent.VK_BACK_SPACE)) || (c == KeyEvent.VK_DELETE)) || c == '.') {
         } else {
-            JOptionPane.showMessageDialog(null, "Please Use Only Numbers !");
+            JOptionPane.showMessageDialog(rootPane, "Please Use Only Numbers !", "Warning", JOptionPane.WARNING_MESSAGE);
             evt.consume();
         }
     }//GEN-LAST:event_jTextField_priceKeyTyped
@@ -463,7 +463,7 @@ public class RealEstate extends javax.swing.JFrame implements Listable {
         char c = evt.getKeyChar();
         if (((Character.isDigit(c) || (c == KeyEvent.VK_BACK_SPACE)) || (c == KeyEvent.VK_DELETE)) || c == '.') {
         } else {
-            JOptionPane.showMessageDialog(null, "Please Use Only Numbers !");
+            JOptionPane.showMessageDialog(rootPane, "Please Use Only Numbers !", "Warning", JOptionPane.WARNING_MESSAGE);
             evt.consume();
         }
     }//GEN-LAST:event_jTextField_sqareFeetKeyTyped
@@ -472,7 +472,7 @@ public class RealEstate extends javax.swing.JFrame implements Listable {
         char c = evt.getKeyChar();
         if (((Character.isDigit(c) || (c == KeyEvent.VK_BACK_SPACE)) || (c == KeyEvent.VK_DELETE))) {
         } else {
-            JOptionPane.showMessageDialog(null, "Please Use Only Numbers !");
+            JOptionPane.showMessageDialog(rootPane, "Please Use Only Numbers !", "Warning", JOptionPane.WARNING_MESSAGE);
             evt.consume();
         }
     }//GEN-LAST:event_jTextField_numBedRoomsKeyTyped
@@ -480,7 +480,7 @@ public class RealEstate extends javax.swing.JFrame implements Listable {
     private void jTextField_firstNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField_firstNameKeyTyped
         char c = evt.getKeyChar();
         if ((Character.isDigit(c))) {
-            JOptionPane.showMessageDialog(null, "Please Use Only Characters !");
+            JOptionPane.showMessageDialog(rootPane, "Please Use Only Characters !", "Warning", JOptionPane.WARNING_MESSAGE);
             evt.consume();
         } else {
         }
@@ -489,7 +489,7 @@ public class RealEstate extends javax.swing.JFrame implements Listable {
     private void jTextField_lastNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField_lastNameKeyTyped
         char c = evt.getKeyChar();
         if ((Character.isDigit(c))) {
-            JOptionPane.showMessageDialog(null, "Please Use Only Characters !");
+            JOptionPane.showMessageDialog(rootPane, "Please Use Only Characters !",  "Warning", JOptionPane.WARNING_MESSAGE);
             evt.consume();
         } else {
         }
@@ -529,11 +529,11 @@ public class RealEstate extends javax.swing.JFrame implements Listable {
             if (c) {
             }
             else {
-                JOptionPane.showMessageDialog(rootPane, "No value Found ! ", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(rootPane, "No Value Found !", "Error", JOptionPane.ERROR_MESSAGE);
             }
 
         } else {
-            JOptionPane.showMessageDialog(rootPane, "Enter Lot Number ", "Error", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(rootPane, "Enter Lot Number to Find !", "Warning", JOptionPane.WARNING_MESSAGE);
         }
 
 
@@ -590,8 +590,9 @@ public class RealEstate extends javax.swing.JFrame implements Listable {
         if (i == 0) {
             try {
                 h.clearFile();
+                JOptionPane.showMessageDialog(rootPane, "Reset Completed !", "Success", JOptionPane.INFORMATION_MESSAGE);
             } catch (Exception e) {
-                System.out.println("erro " + e.getMessage());
+                System.out.println("Error " + e.getMessage());
             } finally {
                 clearForm();
             }
